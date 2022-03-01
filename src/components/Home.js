@@ -7,8 +7,8 @@ import Register from "./Register";
 import { Link } from "react-router-dom";
 const VideosGrid = styled.div`
   @media only screen and (max-width: 768px) {
-    display: flex;
-    flex-direction: column;
+    grid-template-columns: 1fr;
+    gap : 5px;
   }
   display: grid;
   grid-template-columns: repeat(3, 1fr);
@@ -21,7 +21,8 @@ const IMG = styled.img`
   justify-self: flex-start;
   align-self: center;
   width: 100%;
-  height: 80%;
+  flex-grow: 0;
+  height: 70%;
 `;
 const VideoElement = styled.div`
   width: 100%;
@@ -29,6 +30,14 @@ const VideoElement = styled.div`
   margin: 2px;
   white-space: nowrap;
   height: 100%;
+  @media only screen and (max-width: 480px) {
+    max-height : 40vh;
+    margin-bottom : 10px;
+  }
+  @media only screen and (min-width: 768px) and (max-width: 1024px) {
+    max-height : 50vh;
+  }
+  max-height : 400px;
   border-radius: 2px;
   background-color: ${({ theme }) => theme.regTheme};
   color: ${({ theme }) => theme.invTheme};
